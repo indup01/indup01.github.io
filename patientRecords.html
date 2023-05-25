@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <title>Patient Records</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    </head>
+    <body>
+   <section class="header">
+            <nav>
+                <a href="index.html"><img src="images/logo.png"></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fas fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="patientRecords.html">COLLECT</a></li>
+                        <li><a href="tableSchedule.html">PATIENTS</a></li>
+                        <li><a href="settings.html">SETTINGS</a></li>
+                    </ul>
+                </div>
+                <i class="fas fa-bars" onclick="showMenu()"></i>
+            </nav>
+            <div class="text-box">
+                <h1>Patient Records</h1>
+                <p>Track patients' medication adherence below:<br> 
+                </p>
+            </p>
+            <a href="addPatient.html" class="hero-btn">Add new patient</a>
+            </div>
+                
+            </div>
+
+</section>    
+
+<section class="patientRecords">
+    <title>Patient Records</title>
+    <link rel="shortcut icon" href="http://youtube.local/assets/favicon.ico">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+.patientTable table{
+    width: 80%;
+    margin-left: 200px;
+    margin:auto;
+    padding-top: 100px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    position: relative;
+
+}
+
+.content-table{
+border-collapse: collapse;
+margin: 25px 0;
+font-size:1em;
+min-width: 400px;
+border-radius: 5px 5px 0 0;
+overflow: hidden;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+position: relative;
+}
+
+.content-table thead tr {
+background-color: #f44336;
+color: #ffffff;
+text-align: left;
+font-weight: bold;
+}
+.content-table th, 
+.content-table td {
+padding: 12px 15px;
+}
+.content-table tbody tr{
+border-bottom: 1px solid #dddddd;
+}
+.content-table tbody tr:nth-of-type(even) {
+background-color:#f3f3f3;
+
+}
+.content-table tbody tr:last-of-type {
+border-bottom: 2px solid #f44336;
+}
+
+</style>
+
+<body>
+   
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Taken</th>
+                <th>Compartment</th>
+                <th>Day</th>
+                <th>Month</th>
+                <th>Day of week</th>
+                <th>Time (hours)</th>
+                <th>Time (minutes)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-href="ironman.html">
+                <td>Ironman</td>
+                <td>Y</td>
+                <td>1</td>
+                <td>3</td>
+                <td>May</td>
+                <td>Fri</td>
+                <td>09</td>
+                <td>00</td>
+            </tr>
+            <tr data-href="wonderwoman.html">
+                <td>Wonderwoman</td>
+                <td>N</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr data-href="spiderman.html">
+                <td>Spiderman</td>
+                <td>Y</td>
+                <td>3</td>
+                <td>3</td>
+                <td>May</td>
+                <td>Fri</td>
+                <td>15</td>
+                <td>00</td>
+            </tr>
+        </tbody>
+    </table>
+
+<!---------JavaScript for rows with links --------->
+<script>
+//document.addEventListener("DOMContentLoaded" , () => {
+  //  const rows = document.querySelectorAll("tr[data-href]");
+//console.log(rows);
+  //  rows.forEach(row => {
+    //    row.addEventListener("click", () => {
+      //      window.location.href = row.dataset.href;
+        //});
+   // });
+//});
+
+function addCaptainMarvel () {
+    document.querySelector("tbody").insertAdjacentHTML("beforeend", `
+    <tr data-href="captainMarvel.html">
+                <td>Captain Marvel</td>
+                <td>004</td>
+                <td>004</td>
+   
+        </tr>
+        `);
+}
+$(document).ready(function(){
+    $(document.body).on("click", "tr[data-href]", function(){
+        window.location.href = this.dataset.href;
+    });
+});
+</script>
+</body>
+</section>
+
+<!---------JavaScript for Toggle Menu --------->
+
+<script>
+        
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+</script>
+</html>

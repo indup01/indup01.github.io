@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <title>Patient 2</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    </head>
+    <body>
+   <section class="header">
+            <nav>
+                <a href="index.html"><img src="images/logo.png"></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fas fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="patientRecords.html">COLLECT</a></li>
+                        <li><a href="tableSchedule.html">PATIENTS</a></li>
+                        <li><a href="settings.html">SETTINGS</a></li>
+                    </ul>
+                </div>
+                <i class="fas fa-bars" onclick="showMenu()"></i>
+            </nav>
+            <div class="text-box">
+                <h1>Wonderwoman</h1>
+                <p>Please edit the schedule by pressing on the information you would like to change.<br> 
+                </p>
+                <a href="#" class="hero-btn">Sync</a>
+            </div>
+                
+            </div>
+
+</section>    
+
+<!---------patient table-------->
+
+<section class="patient2">
+    <title>Schedule</title>
+    <link rel="shortcut icon" href="http://youtube.local/assets/favicon.ico">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+    .patient2 table{
+        position: relative;
+        width: 80%;
+        margin:auto;
+        padding-top: 100px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+ 
+    }
+
+   .content-table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size:1em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+   
+    }
+
+.content-table thead tr {
+background-color: #f44336;
+color: #ffffff;
+text-align: left;
+font-weight: bold;
+}
+.content-table th, 
+.content-table td {
+    padding: 12px 15px;
+}
+.content-table tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+.content-table tbody tr:nth-of-type(even) {
+    background-color:#f3f3f3;
+
+}
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #f44336;
+}
+
+
+
+</style>
+
+
+<body>
+   
+    <table id="example" class="content-table">
+        <thead>
+            <tr>
+                <th>Pill</th>
+                <th>Compartment</th>
+                <th>Scheduled time</th>
+                <th>Amount</th>
+                <th>No. of Compartments in use</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pill A</td>
+                <td>1</td>
+                <td>9:00</td>
+                <td>2 tablets</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Pill B</td>
+                <td>2</td>
+                <td>15:00</td>
+                <td>1 tablet</td>
+            </tr>
+            <tr>
+                <td>Pill C</td>
+                <td>3</td>
+                <td>21:00</td>
+                <td>2 tablets</td>
+            </tr>
+        </tbody>
+    </table>
+<script>
+    var table = document.getElementById('example');
+    var cells = table.getElementsByTagName('td');
+
+    for (var i = 0; i< cells.length; i++){
+        cells[i].onclick = function() {
+            if (this.hasAttribute('data-clicked')) {
+                return;
+            }
+            this.setAttribute('data-clicked','yes');
+            this.setAttribute('data-text', this.innerHTML);
+
+          var input = document.createElement('input');
+          input.setAttribute('type', 'text');
+          input.value = this.innerHTML;
+          input.style.width = this.offsetWidth - (this.clientLeft * 2) + "px";
+          input.style.height = this.offsetHeight - (this.clientTop * 2) + "px";
+          input.style.border = "0px";
+          input.style.fontFamily = "inherit";
+          input.style.fontSize = "inherit";
+          input.style.textAlign = "inherit";
+          input.style.backgroundColor= "LightGoldenRodYellow";
+
+          input.onblur = function() {
+            var td = input.parentElement;
+            var orig_text = input.parentElement.getAttribute('data-text');
+            var current_text = this.value;
+
+            if (orig_text !=current_text) {
+                //there are changes in the cell's text
+                //save to db with Ajax
+                td.removeAttribute('data-clicked');
+                td.removeAttribute('data-text');
+                td.innerHTML = current_text;
+                td.style.cssText = 'padding: 5px';
+console.log(orig_text + ' is Changed to ' + current_text);
+            } else {
+                td.removeAttribute('data-clicked');
+                td.removeAttribute('data-text');
+                td.innerHTML = orig_text;
+                td.style.cssText = 'padding: 5px';
+            }
+        }
+           
+            input.onkeypress = function() {
+                if (event.keyCode == 13){
+                    this.blur();
+                  }
+             }
+          this.innerHTML = '';
+          this.style.cssText = 'padding: 0px 0px';
+          this.append(input);
+          this.firstElementChild.select();
+
+        }
+    }
+    
+
+   
+</script>
+
+
+</body>
+</section>
+<!---------JavaScript for Toggle Menu --------->
+
+<script>
+        
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+
+    </script> 
+</html>

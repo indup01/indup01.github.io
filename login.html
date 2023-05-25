@@ -1,0 +1,101 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In and Sign Up Form</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a68e688081.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  
+  <section class="header">
+    <nav>
+        <a href="index.html"><img src="images/logo.png"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fas fa-times" onclick="hideMenu()"></i>
+            <ul>
+              <li><a href="index.html">HOME</a></li>
+                        <li><a href="patientRecords.html">COLLECT</a></li>
+                        <li><a href="tableSchedule.html">PATIENTS</a></li>
+                        <li><a href="settings.html">SETTINGS</a></li>
+            </ul>
+        </div>
+        <i class="fas fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+
+
+
+  <div class="container">
+    <div class="form-box">
+      <h1 id="title">Sign up</h1>
+      <form>
+        <div class="input-group">
+          <div class="input-field" id="nameField">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" placeholder="Name">
+          </div>
+
+          <div class="input-field">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" placeholder="Email">
+          </div>
+
+          <div class="input-field">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" placeholder="Password">
+          </div>
+          <p>Forgot password <a href="#">Click Here!</a></p>
+
+        </div>
+        <div class="btn-field">
+          <button type="button" id="signupBtn">Sign up</button>
+          <button type="button" id="signinBtn" class="disable">Sign in</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+
+let signupBtn = document.getElementById("signupBtn")
+let signinBtn = document.getElementById("signinBtn")
+let nameField = document.getElementById("nameField")
+let title = document.getElementById("title")
+
+<!--click function-->
+
+signinBtn.onclick = function(){
+  nameField.style.maxHeight = "0";
+  title.innerHTML = "Sign In";
+  signupBtn.classList.add("disable");
+  signinBtn.classList.remove("disable");
+}
+signupBtn.onclick = function(){
+  nameField.style.maxHeight = "60px";
+  title.innerHTML = "Sign Up";
+  signupBtn.classList.remove("disable");
+  signinBtn.classList.add("disable");
+}
+
+
+  </script>
+
+
+</body>
+<!---------JavaScript for Toggle Menu --------->
+
+<script>
+        
+  var navLinks = document.getElementById("navLinks");
+
+  function showMenu(){
+      navLinks.style.right = "0";
+  }
+  function hideMenu(){
+      navLinks.style.right = "-200px";
+  }
+
+  </script> 
+</html>

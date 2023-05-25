@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Patient</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a68e688081.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  
+  <section class="header">
+    <nav>
+        <a href="index.html"><img src="images/logo.png"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fas fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                        <li><a href="patientRecords.html">COLLECT</a></li>
+                        <li><a href="tableSchedule.html">PATIENTS</a></li>
+                        <li><a href="settings.html">SETTINGS</a></li>
+            </ul>
+        </div>
+        <i class="fas fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+    <div class="container">
+        <div class="form-box">
+          <h1 id="title">Add Patient</h1>
+          <form>
+            <div class="input-group">
+                <div class="input-field" id="patientID">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" placeholder="Pateint ID">
+                </div>
+            <div class="input-group">
+              <div class="input-field" id="name">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Name">
+              </div>
+    
+              <div class="input-field">
+                <i class="fa-solid fa-user"></i>
+                <input type="datetime" placeholder="Device ID">
+              </div>
+    
+    
+            </div>
+            <div class="btn-field">
+              <button type="button" id="addButton">Add</button>
+            </div>
+          </form>
+        </div>
+  
+      
+<table>
+    
+</table>
+<script>
+    const formEl = document.querySelector("form");
+    const tbodyEl = document.querySelector('tbody');
+    function onAddWebsite(e) {
+        e.preventDefault();
+        const patientID = document.getElementById("patientID").value;
+        const name = document.getElementById("name").value;
+        tbodyEl.innerHTML +=
+        <tr>
+            <td>${patientID}</td>
+            <td>${website}</td>
+            <td><button class= "deleteBtn">Delete</button>
+         </tr>
+         ;
+    }
+</script>
+
+
+<!---------JavaScript for Toggle Menu --------->
+
+        <script>
+        
+        var navLinks = document.getElementById("navLinks");
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+
+        </script>  
+        </html>
